@@ -15,14 +15,14 @@ class LayoutProcessorPlugin
         LoggerInterface $loggerInterface,
         MainService $mainService, 
         OrderService $orderService
-    ){
+    ) {
         $this->_loggerInterface = $loggerInterface;
         $this->_mainService = $mainService;
         $this->_orderService = $orderService;
     }
     /**
-     * @param \Magento\Checkout\Block\Checkout\LayoutProcessor $subject
-     * @param array $jsLayout
+     * @param  \Magento\Checkout\Block\Checkout\LayoutProcessor $subject
+     * @param  array                                            $jsLayout
      * @return array
      */
     public function afterProcess(

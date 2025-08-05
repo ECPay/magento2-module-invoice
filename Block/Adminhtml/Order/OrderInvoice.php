@@ -30,7 +30,7 @@ class OrderInvoice extends AbstractOrder
         MainService $mainService,
         InvoiceService $invoiceService,
         array $data = []
-    ){
+    ) {
 
         $this->_encryptionsService = $encryptionsService;
         $this->_orderService = $orderService;
@@ -94,22 +94,22 @@ class OrderInvoice extends AbstractOrder
         // 依照 ecpayInvoiceType 加入資料
         $extension = [];
         switch ($invoiceTypeCode) {
-            case EcpayInvoice::ECPAY_INVOICE_TYPE_P:
-                $extension = [
-                    'ecpay_invoice_carruer_num' => $this->_orderService->getEcpayInvoiceCarruerNum($this->orderId),
-                ];
-                break;
-            case EcpayInvoice::ECPAY_INVOICE_TYPE_C:
-                $extension = [
-                    'ecpay_invoice_customer_company' => $this->_orderService->getEcpayInvoiceCustomerCompany($this->orderId),
-                    'ecpay_invoice_customer_identifier' => $this->_orderService->getEcpayInvoiceCustomerIdentifier($this->orderId),
-                ];
-                break;
-            case EcpayInvoice::ECPAY_INVOICE_TYPE_D:
-                $extension = [
-                    'ecpay_invoice_love_code' => $this->_orderService->getEcpayInvoiceLoveCode($this->orderId),
-                ];
-                break;
+        case EcpayInvoice::ECPAY_INVOICE_TYPE_P:
+            $extension = [
+                'ecpay_invoice_carruer_num' => $this->_orderService->getEcpayInvoiceCarruerNum($this->orderId),
+            ];
+            break;
+        case EcpayInvoice::ECPAY_INVOICE_TYPE_C:
+            $extension = [
+                'ecpay_invoice_customer_company' => $this->_orderService->getEcpayInvoiceCustomerCompany($this->orderId),
+                'ecpay_invoice_customer_identifier' => $this->_orderService->getEcpayInvoiceCustomerIdentifier($this->orderId),
+            ];
+            break;
+        case EcpayInvoice::ECPAY_INVOICE_TYPE_D:
+            $extension = [
+                'ecpay_invoice_love_code' => $this->_orderService->getEcpayInvoiceLoveCode($this->orderId),
+            ];
+            break;
         }
         $invoiceData = array_merge($invoiceData, $extension);
 

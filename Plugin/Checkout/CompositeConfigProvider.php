@@ -16,7 +16,7 @@ class CompositeConfigProvider
         LoggerInterface $loggerInterface,
         MainService $mainService,
         OrderService $orderService
-    ){
+    ) {
         $this->_loggerInterface = $loggerInterface;
         $this->_mainService = $mainService;
         $this->_orderService = $orderService;

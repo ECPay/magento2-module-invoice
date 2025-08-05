@@ -3,11 +3,11 @@
 * @var $block \Ecpay\Invoice\Block\Adminhtml\Order\OrderInvoice
 */
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Ecpay_Invoice::css/order/invoice-block.css')?>">
+<link rel="stylesheet" type="text/css" href="<?= $block->escapeHtml($block->getViewFileUrl('Ecpay_Invoice::css/order/invoice-block.css')) ?>">
 
 <section class="admin__page-section order-view-custom-block" id="invoice-block">
     <div class="admin__page-section-title">
-        <span class="title"><?= __('Ecpay Invoice Infomation');?></span>
+        <span class="title"><?= $block->escapeHtml(__('Ecpay Invoice Infomation')) ?></span>
     </div>
 
     <div class="invoice-msg" id="invoice-msg" style="display: none;">
@@ -17,27 +17,27 @@
     <div class="admin__page-section-content">
         <div class="admin__page-section-item">
             <div class="admin__page-section-item-title">
-                <span class="title"><?= __('Invoice Infomation');?></span> <!--發票資訊-->
+                <span class="title"><?= $block->escapeHtml(__('Invoice Infomation')) ?></span> <!--發票資訊-->
             </div>
             <div class="admin__page-section-item-content invoice-info">
-                <label><?= __('Invoice Number：');?></label> <!--發票號碼-->
+                <label><?= $block->escapeHtml(__('Invoice Number：')) ?></label> <!--發票號碼-->
                 <span id="invoice_no"></span>
                 <br>
-                <label><?= __('Invoice Issuance Time：');?></label> <!--開立時間-->
+                <label><?= $block->escapeHtml(__('Invoice Issuance Time：')) ?></label> <!--開立時間-->
                 <span id="invoice_date"></span>
                 <br>
-                <label><?= __('Random Number：');?></label> <!--隨機碼-->
+                <label><?= $block->escapeHtml(__('Random Number：')) ?></label> <!--隨機碼-->
                 <span id="invoice_random_num"></span>
                 <br>
-                <label><?= __('Invoice Mode：');?></label> <!--發票開立-->
+                <label><?= $block->escapeHtml(__('Invoice Mode：')) ?></label> <!--發票開立-->
                 <span id="invoice_type"></span>
                 <br>
 
                 <div id="invoice_info">
-                    <label><?= __('Invoice Info Type：');?></label> <!--開立方式-->
+                    <label><?= $block->escapeHtml(__('Invoice Info Type：')) ?></label> <!--開立方式-->
                     <span id="invoice_issue_type"></span>
                     <br>
-                    <label><?= __('Transaction Number：');?></label> <!--交易單號-->
+                    <label><?= $block->escapeHtml(__('Transaction Number：')) ?></label> <!--交易單號-->
                     <span id="invoice_od_sob"></span>
                     <br>
 
@@ -47,8 +47,8 @@
             </div>
             <br>
             <div id="invoice-btns-block">
-                <input type="button" class="action-default scalable action-save action-secondary" id="create_invoice_btn" value="<?= __('Issue Invoice');?>" />
-                <input type="button" class="action-default scalable action-save action-secondary" id="invalid_invoice_btn" value="<?= __('Void Invoice');?>" />
+                <input type="button" class="action-default scalable action-save action-secondary" id="create_invoice_btn" value="<?= $block->escapeHtml(__('Issue Invoice')) ?>" />
+                <input type="button" class="action-default scalable action-save action-secondary" id="invalid_invoice_btn" value="<?= $block->escapeHtml(__('Void Invoice')) ?>" />
             </div>
         </div>
     </div>
@@ -58,10 +58,10 @@
 {
     "*": {
         "Ecpay_Invoice/js/order/invoice-ajax": {
-            "baseUrl": <?php echo json_encode($block->getBaseUrl()); ?>,
-            "encryptData": <?php echo $block->getEncryptData(); ?>,
-            "invoiceData": <?php echo $block->getInvoiceData(); ?>,
-            "invoiceModuleEnable": <?php echo $block->getIvoiceModuleEnable(); ?>
+            "baseUrl": <?= json_encode($block->getBaseUrl()) ?>,
+            "encryptData": <?= $block->getEncryptData() ?>,
+            "invoiceData": <?= $block->getInvoiceData() ?>,
+            "invoiceModuleEnable": <?= $block->getIvoiceModuleEnable() ?>
         }
     }
 }

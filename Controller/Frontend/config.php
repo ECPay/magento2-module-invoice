@@ -16,8 +16,7 @@ class Config extends Action
         Context $context,
         MainService $mainService,
         ResponseFactory $responseFactory
-    )
-    {
+    ) {
         $this->_mainService = $mainService;
         $this->_responseFactory = $responseFactory;
 
